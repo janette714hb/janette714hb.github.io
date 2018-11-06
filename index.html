@@ -1,72 +1,79 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
+
 <head>
-
-  <title>Latitude</title>
   <meta charset="utf-8">
+  <title>UFO Finder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./style.css"> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link rel="stylesheet" href="css_style.css">
 </head>
-<body>
 
-<div class="container-fluid">
-  <nav class="navbar navbar-default">
+<body>
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./landing.html">Latitude</a>
-            </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Plots
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  <li><a href="./max_temp.html">Latitude vs Max Temperature</a></li>
-                  <li><a href="./humidity.html">Latitude vs Humidity</a></li>
-                  <li><a href="./cloudiness.html">Latitude vs Cloudiness</a></li>
-                  <li><a href="./windspeed.html">Latitude vs Wind Speed</a></li>
-              </ul>
-           </li>
-            <li><a class="nav-link" href="./Comparisons.html">Comparisons</a></li>
-            <li><a class="nav-link" href="./Data.html">Data</a></li>
-        </ul>
+          <a class="navbar-brand" href="index.html">UFO Sightings
+            <img class="nav-ufo" src="ufo_pic.jpg">
+          </a>
+        </div>
       </div>
-  </nav>
-
-	<div class = "content">
-		<div class="container-fluid">
-			<div class="row">
-    		<div class="col-sm-12 col-md-8">
-    			<div class = "box">
-    				<div class="page-header">
-    					<h1 class = "title">Summary: Latitude vs. X</h1>
-    				</div>
-    				<div class = "box">
-    					<img src="./Fig1.png" alt="Latitude vs Max Temperature" height="360" width="400" align="left">
-    					<p class="category">The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this, we first pulled data from the OpenWeatherMap API to assemble a dataset of over 500 cities.</p>
-    					<p class="category"> After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed.</p>
-    				</div>
+    </nav>
+    <div class="hero text-center">
+      <h1>UFO Sightings</h1>
+      <p>The Truth is Out There...or maybe not!</p>
+    </div>
+    <div class="container">
+      <div class="row margin-top-50">
+        <div class="col-md-2">
+          <aside class="filters">
+            <div class="panel panel-default">
+              <div class="panel-heading">Filter Search</div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group">
+                    <ul class="list-group" id="filters">
+                      <li class="filter list-group-item">
+                        <label for="date">Enter a Date</label>
+                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                      </li>
+                    </ul>
+                  </div>
+                  <button id="filter-btn" type="submit" class="btn btn-default">Filter Table</button>
+                </form>
+              </div>
+            </div>
+          </aside>
+        </div>
+        <div class="col-md-10">
+          <div id="table-area" class="">
+            <table id="ufo-table" class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">City</th>
+                  <th class="table-head">State</th>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Duration</th>
+                  <th class="table-head">Comments</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
-    		</div>		
-			 <div class="col-sm-6 col-md-4">
-            <div class = "box">
-              <div class="page-header">
-                <h1 class="title">Visualizations</h1>
-              </div>
-                <div class="box">
-                  <a href="./max_temp.html"><img src="./Fig1.png" alt="Latitude vs. Max Temperature" height="240" width="260"></a>
-                  <a href="./humidity.html"><img src="./Fig2.png" alt="Latitude vs Humidity" height="240" width="260"></a>
-                  <a href="./cloudiness.html"><img src="./Fig3.png" alt="Latitude vs. Cloudiness" height="240" width="260"></a>
-                  <a href="./windspeed.html"><img src="./Fig4.png" alt="Latitude vs. Wind Speed" height="240" width="260"></a>
-                </div>
-              </div>
         </div>
       </div>
     </div>
+    <footer class="footer">
+      <span class="bottom">UFO Sightings</span>
+    </footer>
   </div>
-</div>    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
+
 </html>
